@@ -24,9 +24,9 @@ const PageHeader = ({ page = 'HOME', title, description }) => {
       <meta property="og:site_name" content={'Nexplorer'} />
       <meta property="og:url" content="https://nexus-explorer.vercel.app/" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content={_title} />
-      <meta property="og:description" content={_description} />
-      <meta property="og:image" content={ASSESTS.IMAGE.OPENGRAPH} />
+      <meta property="og:title" content="Nexus Explorer V2" />
+      <meta property="og:description" content="Nexus Blockchain Statistics" />
+      <meta property="og:image" content="/OpenGraph_Image.jpg" />
 
       {/* <!-- Twitter Meta Tags --> */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -35,9 +35,9 @@ const PageHeader = ({ page = 'HOME', title, description }) => {
         property="twitter:url"
         content="https://nexus-explorer.vercel.app/"
       />
-      <meta name="twitter:title" content={_title} />
-      <meta name="twitter:description" content={_description} />
-      <meta name="twitter:image" content={ASSESTS.IMAGE.OPENGRAPH} />
+      <meta name="twitter:title" content="Nexus Explorer V2" />
+      <meta name="twitter:description" content="Nexus Blockchain Statistics" />
+      <meta name="twitter:image" content="/OpenGraph_Image.jpg" />
     </Head>
   );
 };
