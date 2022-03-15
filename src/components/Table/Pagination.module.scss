@@ -1,3 +1,5 @@
+@use 'styles' as *;
+
 .pagination {
   color: var(--theme-page-text);
   background: var(--theme-tab-bg);
@@ -89,7 +91,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@include media-screen('<tablet') {
   .pagination {
     flex-direction: column;
 

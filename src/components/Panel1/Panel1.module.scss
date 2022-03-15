@@ -1,3 +1,5 @@
+@use 'styles' as *;
+
 .container {
   width: 100%;
   display: flex;
@@ -14,7 +16,7 @@
   }
 
   /* for small screen */
-  @media (max-width: 768px) {
+  @include media-screen('<tablet') {
     flex-direction: column;
   }
 }

@@ -1,3 +1,5 @@
+@use 'styles' as *;
+
 .container {
   overflow: auto;
   color: var(--theme-page-text);
@@ -11,7 +13,7 @@
 }
 
 // for mobile
-@media (max-width: 768px) {
+@include media-screen('<tablet') {
   .container {
     padding: 0rem var(--space-xxxs) var(--space-xs) var(--space-xxxs);
 

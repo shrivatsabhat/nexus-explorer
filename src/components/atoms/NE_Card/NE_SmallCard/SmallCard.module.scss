@@ -1,3 +1,5 @@
+@use 'styles' as *;
+
 .card {
   min-width: 14.5rem; /* 232px */
   box-shadow: var(--card-shadow-border), var(--card-shadow);
@@ -84,7 +86,7 @@
     place-items: center;
   }
 }
-@media (max-width: 768px) {
+@include media-screen('<tablet') {
   .card {
     min-width: 12rem; /* 192px */
     &-small {
@@ -98,7 +100,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@include media-screen('<mobile') {
   .card {
     &-icon {
       opacity: 0.6;

@@ -1,3 +1,5 @@
+@use 'styles' as *;
+
 .chart {
   &__line {
     display: flex;
@@ -20,7 +22,7 @@
     min-height: 12rem; /* 192px */
     margin-bottom: var(--space-xxs);
 
-    @media (max-width: 768px) {
+    @include media-screen('<tablet') {
       // min-width: 30rem; // this causes appearnce of scrollbar on mobile
       min-height: 30rem;
     }

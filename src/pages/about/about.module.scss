@@ -1,3 +1,5 @@
+@use 'styles' as *;
+
 .main {
   display: grid;
   display: -ms-grid;
@@ -91,7 +93,7 @@
 }
 
 /* mobile screen classes */
-@media (max-width: 768px) {
+@include media-screen('<tablet') {
   .main {
     grid-template-columns: 1fr;
     -ms-grid-columns: 1fr;

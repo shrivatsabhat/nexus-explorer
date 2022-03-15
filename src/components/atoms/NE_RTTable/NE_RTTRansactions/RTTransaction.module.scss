@@ -1,3 +1,5 @@
+@use 'styles' as *;
+
 .rttrowDetail {
   width: 100%;
   display: flex;
@@ -30,7 +32,7 @@
       opacity: 1;
     }
   }
-  @media (max-width: 768px) {
+  @include media-screen('<tablet') {
     .rttrowBottom {
       align-items: center;
     }

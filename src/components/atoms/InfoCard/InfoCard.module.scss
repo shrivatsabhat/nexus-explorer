@@ -1,3 +1,5 @@
+@use 'styles' as *;
+
 .container {
   color: var(--theme-page-text);
   background: var(--theme-page-background);
@@ -30,7 +32,7 @@
 }
 
 /* mobile screen classes */
-@media (max-width: 768px) {
+@include media-screen('<tablet') {
   .container {
     padding: 0.25rem 0.25rem;
     box-shadow: var(--card-shadow-border);

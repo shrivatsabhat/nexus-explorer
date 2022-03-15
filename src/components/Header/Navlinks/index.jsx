@@ -55,7 +55,9 @@ export const NestedNavLinks = ({
         <Link key={title + index} href={item.path} passHref>
           <span
             className={
-              activePathname === item.path ? styles.dropDown__active : undefined
+              activePathname === item.path
+                ? styles.dropDown__active
+                : styles.dropdown__item
             }>
             {item.title}
           </span>

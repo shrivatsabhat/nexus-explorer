@@ -1,0 +1,23 @@
+$theme-light: (
+  page: (
+    background: var(--paper-white),
+    color-primary: var(--dark-grey),
+    color-secondary: var(--dark-grey),
+  ),
+);
+
+$theme-dark: (
+  page: (
+    background: var(--paper-white),
+    color-primary: var(--dark-grey),
+    color-secondary: var(--dark-grey),
+  ),
+);
+
+$theme-testnet: (
+  page: (
+    background: var(--paper-white),
+    color-primary: var(--dark-grey),
+    color-secondary: var(--dark-grey),
+  ),
+);

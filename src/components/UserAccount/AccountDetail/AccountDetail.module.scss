@@ -1,3 +1,5 @@
+@use 'styles' as *;
+
 .details {
   display: flex;
   flex-direction: row;
@@ -40,7 +42,7 @@
     border-radius: 0.5rem;
     box-shadow: var(--card-shadow);
   }
-  @media (max-width: 768px) {
+  @include media-screen('<tablet') {
     flex-direction: column;
     overflow: scroll;
     align-items: flex-start;

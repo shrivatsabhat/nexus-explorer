@@ -21,8 +21,10 @@
       border-radius: 0.125rem;
       transition: color 250ms ease;
     }
-    &.dropDown__active {
+    &.dropDown__active,
+    &.dropdown__item {
       border: none;
+      padding: var(--space-xxs);
     }
   }
 }

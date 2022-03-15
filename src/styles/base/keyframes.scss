@@ -1,0 +1,132 @@
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  10%,
+  90% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+    transform: translateX(calc(6rem * var(--local-animation-direction, -1)));
+  }
+  70% {
+    transform: translateX(0);
+    opacity: 70%;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 100%;
+  }
+}
+
+@keyframes flipCard {
+  0% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes motion1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes motion3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes motion2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(calc(var(--d-size) * 0.415), 0);
+  }
+}
+
+@keyframes move-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-l));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes placeholderShimmer {
+  0% {
+    background-position: calc(var(--animate-width) * -1) 0;
+  }
+
+  100% {
+    background-position: calc(var(--animate-width) * 1) 0;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(120deg) scale(0.8);
+  }
+  to {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(var(--translate)) translateY(10vh);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(var(--translate)) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 80%;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(var(--translate)) translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(var(--translate)) translateY(10vh);
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
