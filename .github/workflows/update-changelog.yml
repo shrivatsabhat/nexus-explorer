@@ -8,17 +8,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      - name: Config git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git checkout -f main
+
       - name: Package version
         run: |
           version=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
           echo "Package version: $version"
           echo "PACKAGE_VERSION=$version" >> $GITHUB_ENV
+      
+      - name: Create new release branch
+        run: |
+          echo "git checkout -b build/v$(cat package.json | jq -r .version)"
 
       - name: Update changelog
         run: |
           yarn add github-release-notes -D
           export GREN_GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
           yarn run overrideChangelog
+
+      - name: Push new branch
+        run: echo "git push origin build/v${{ env.RELEASE_BRANCH }} --force"
 
       - name: Create Pull Request
         id: create_pull_request
@@ -30,7 +44,7 @@ jobs:
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           title: 'build: update changelog for v${{ env.PACKAGE_VERSION }}'
           body: 'Updated changelog for v${{ env.PACKAGE_VERSION }}, release changes refelct on ${{ github.event.repository.name }}.(This is an automatic changelog generated pull request created by GitHub Actions)'
-          branch: develop
-          base: main
+          branch: build/v${{ env.PACKAGE_VERSION }}
+          base: develop
           labels: |
             release:changelog
