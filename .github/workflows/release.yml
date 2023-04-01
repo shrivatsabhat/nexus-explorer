@@ -77,18 +77,3 @@ jobs:
           base: main
           labels: |
             release:bump-version
-
-      - name: Create pull request to develop
-        id: create_pull_request_to_develop
-        uses: peter-evans/create-pull-request@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: 'chore: bump version ${{ env.PACKAGE_VERSION }}'
-          committer: GitHub <noreply@github.com>
-          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-          title: 'chore: bump to v${{ env.PACKAGE_VERSION }} '
-          body: 'This is an automatic release pull request created by GitHub Actions'
-          branch: release/v${{ env.PACKAGE_VERSION }}
-          base: develop
-          labels: |
-            release:bump-version
