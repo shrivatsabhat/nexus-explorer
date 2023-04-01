@@ -16,8 +16,6 @@ jobs:
           git config --local user.name "GitHub Action"
           git checkout -f main
 
-          echo "git branch" ${{git branch}}
-
       - name: Package version
         run: |
           version=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
