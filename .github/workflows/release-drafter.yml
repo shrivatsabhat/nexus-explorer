@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     # check pull request from release/v*.*.* to main
 #     if: ${{ github.event.pull_request.base.ref == 'main' && needs.branch_validation.outputs.validate_branch == 'true'}}
-    if:  startsWith(github.head_ref, 'release/')
+    # if:  startsWith(github.head_ref, 'release/')
 
     permissions:
       contents: write # for release-drafter/release-drafter to create a github release
