@@ -2,11 +2,11 @@ name: Release Drafter
 
 on:
   # branches to consider in the event; optional, defaults to all
-  push:
+  [push]
   # pull_request:
   #   types: [opened, reopened]
-    branches:
-      - main
+    # branches:
+    #   - main
 
 permissions:
   contents: write
