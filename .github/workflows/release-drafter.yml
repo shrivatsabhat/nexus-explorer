@@ -1,8 +1,10 @@
 name: Release Drafter
 
 on:
+  # branches to consider in the event; optional, defaults to all
+  push:
   pull_request:
-    # branches to consider in the event; optional, defaults to all
+    types: [opened, reopened]
     branches:
       - main
 
