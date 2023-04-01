@@ -27,6 +27,8 @@ jobs:
           git config --local user.name "GitHub Action"
           git checkout -f develop
 
+          echo "git branch"
+
       - name: Get release type
         run: |
           echo "Release type : ${{ github.event.inputs.release-type }}"
@@ -55,6 +57,7 @@ jobs:
 
       - name: Create new release branch
         run: |
+          echo "git branch"
           echo "git checkout -b release/v$(cat package.json | jq -r .version)"
 
       - name: Push new branch
