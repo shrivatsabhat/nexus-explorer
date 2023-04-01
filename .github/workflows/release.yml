@@ -27,8 +27,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git checkout -f develop
 
-          echo "git branch" 
-          git branch
+          echo "git branch" ${{git branch}}
 
       - name: Get release type
         run: |
