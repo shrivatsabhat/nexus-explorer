@@ -1,53 +1,41 @@
 name: Release Drafter
 
 on:
-  # branches to consider in the event; optional, defaults to all
   push:
-  # pull_request:
-  #   types: [opened, reopened]
+    # branches to consider in the event; optional, defaults to all
     branches:
       - main
+  # pull_request event is required only for autolabeler
+  pull_request:
+    # Only following types are handled by the action, but one can default to all as well
+    types: [opened, reopened, synchronize]
+  # pull_request_target event is required for autolabeler to support PRs from forks
+  pull_request_target:
+    types: [opened, reopened, synchronize]
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  # branch_validation:
-  #   runs-on: ubuntu-latest
-  #   outputs:
-  #     validate_branch: ${{steps.valid_branch.outputs.is_match}}
-  #   steps:
-  #     - name: Check branch validation
-  #       id: valid_branch
-  #       run: |
-  #         echo startsWith(github.head_ref, 'release/') ${{startsWith(github.head_ref, 'release/')}}
-  #         # if [[ ${{ github.ehead_ref }} =~ ^release/v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-  #           echo "is_match=true" >> $GITHUB_OUTPUT
-  #         else
-  #           echo "This is not a release branch"
-  #           exit 1
-  #         fi
-  #     - name: Build
-  #       if: steps.valid_branch.outputs.is_match == 'true'
-  #       run: |
-  #        echo "Branch is a match - head: ${{ github.event.pull_request.head.ref}}, base: ${{github.event.pull_request.base.ref }}"
   update_release_draft:
-    name: release-drafter
-    # needs: branch_validation
-    runs-on: ubuntu-latest
-    # check pull request from release/v*.*.* to main
-#     if: ${{ github.event.pull_request.base.ref == 'main' && needs.branch_validation.outputs.validate_branch == 'true'}}
-    # if:  startsWith(github.head_ref, 'release/')
-
     permissions:
-      contents: write # for release-drafter/release-drafter to create a github release
-      pull-requests: write # for release-drafter/release-drafter to add label to PR
+      # write permission is required to create a github release
+      contents: write
+      # write permission is required for autolabeler
+      # otherwise, read permission is required at least
+      pull-requests: write
+    runs-on: ubuntu-latest
     steps:
-      # Drafts your next Release notes as Pull Requests are merged into "main"
+      # (Optional) GitHub Enterprise requires GHE_HOST variable set
+      #- name: Set GHE_HOST
+      #  run: |
+      #    echo "GHE_HOST=${GITHUB_SERVER_URL##https:\/\/}" >> $GITHUB_ENV
+
+      # Drafts your next Release notes as Pull Requests are merged into "master"
       - uses: release-drafter/release-drafter@v5
         # (Optional) specify config name to use, relative to .github/. Default: release-drafter.yml
-        with:
-          # config-name: my-config.yml
-          disable-autolabeler: true
+        # with:
+        #   config-name: my-config.yml
+        #   disable-autolabeler: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
