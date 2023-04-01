@@ -20,8 +20,8 @@ jobs:
       - name: Check branch validation
         id: valid_branch
         run: |
-          echo github.event.pull_request.head.ref ${{github.event.pull_request.head.ref}}
-          if [[ ${{ github.event.pull_request.head.ref }} =~ ^release/v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+          echo startsWith(github.head_ref, 'releases/') ${{startsWith(github.head_ref, 'releases/')}}
+          if [[ ${{ github.ehead_ref }} =~ ^release/v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             echo "is_match=true" >> $GITHUB_OUTPUT
           else
             echo "This is not a release branch"
